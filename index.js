@@ -78,17 +78,17 @@ bot.onText(/\/trip/,  (msg) => {
 
     isAdmin(msg, () => {
         const chatId = msg.chat.id;
-        if (userStates[chatId] && userStates[chatId].step !== undefined) {
-            bot.sendMessage(chatId, "Yangi sayohat boshlash uchun avval /tugatish komandasi bilan e'lonni to'xtating.");
+        if (!continueSending || !(chatId in userStates)) { 
+          userStates[chatId] = { step: 1 }; // Set the initial step of the trip
+          askQuestion(chatId, "Savol: *Qayerdan?*");
         } else {
-            userStates[chatId] = { step: 1 }; // Set the initial step of the trip
-            askQuestion(chatId, "Savol: *Qayerdan?*");
+          bot.sendMessage(chatId, "Yangi sayohat boshlash uchun avval /tugatish komandasi bilan e'lonni to'xtating.");
         }
     });
 });
 
 function askQuestion(chatId, question) {
-  bot.sendMessage(chatId, question, { parse_mode: "Markdown" });
+  continueSending && bot.sendMessage(chatId, question, { parse_mode: "Markdown" });
 }
 
 bot.on('callback_query', (query) => {
@@ -104,7 +104,7 @@ bot.on('callback_query', (query) => {
 
         intervalId = setInterval(() => {
             sendRepeatedMessage(state, [chatId]);
-        }, 1000); 
+        }, 60000); 
     } else if (data === "edit") {
         state.step = 1;
         bot.sendMessage(chatId, "*Savol: Qayerdan?*", {
