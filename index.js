@@ -5,7 +5,7 @@ const token = '6778329671:AAEviqWYtx9Z6FWYr0F_lADf73fs3sbaj6I';
 const bot = new TelegramBot(token, { polling: true });
 const groupIds = ["-1002049520803"];
 let userStates = {};
-const adminUserIds = ['1097215587', '1049942835'];
+const adminUserIds = ['1097215587', '1049942835', '6963096957'];
 
 let continueSending = true; 
 let intervalId; 
