@@ -9,8 +9,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.6.8",
     "dotenv": "^16.4.5",
     "node-telegram-bot-api": "^0.64.0",
     "telegraf": "^4.16.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Asadbek01/taxi_bot.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Asadbek01/taxi_bot/issues"
+  },
+  "homepage": "https://github.com/Asadbek01/taxi_bot#readme"
 }

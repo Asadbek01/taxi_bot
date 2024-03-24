@@ -3,9 +3,11 @@ require("dotenv").config();
 
 const token = '6778329671:AAEviqWYtx9Z6FWYr0F_lADf73fs3sbaj6I';
 const bot = new TelegramBot(token, { polling: true });
-const groupIds = ["-1002049520803"];
+
+// 1002049520803
+const groupIds = ["-1002002624771"];
 let userStates = {};
-const adminUserIds = ['1097215587', '1049942835', '6963096957'];
+const adminUserIds = ['1097215587', '1049942835'];
 
 let continueSending = true; 
 let intervalId; 
@@ -36,6 +38,8 @@ function sendRepeatedMessage(state, chatIds) {
         clearInterval(intervalId);
     }
 }
+
+
 
 bot.onText(/\/start/, (msg) => {
     continueSending = true; 
