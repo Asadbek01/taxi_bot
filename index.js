@@ -7,7 +7,7 @@ const bot = new TelegramBot(token, { polling: true });
 // 1002049520803
 const groupIds = ["-1002002624771"];
 let userStates = {};
-const adminUserIds = ['1097215587', '1049942835'];
+const adminUserIds = ['1097215587', '1049942835', '1739925049'];
 
 let continueSending = true; 
 let intervalId; 
